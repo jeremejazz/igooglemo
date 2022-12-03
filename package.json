@@ -1,21 +1,21 @@
 {
-  "name": "lmgtfy",
-  "description": "Let me Google that for you",
+  "name": "igooglemo",
+  "description": "I-Google Mo Lang",
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NatoBoram/lmgtfy.git"
+    "url": "git+https://github.com/jeremejazz/igooglemo.git"
   },
   "keywords": [
     "Google",
     "LMGTFY"
   ],
-  "author": "Nato Boram",
+  "author": "Jereme",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/NatoBoram/lmgtfy/issues"
+    "url": "https://github.com/jeremejazz/igooglemo/issues"
   },
-  "homepage": "https://github.com/NatoBoram/lmgtfy#readme",
+  "homepage": "https://igooglemo.com",
   "devDependencies": {
     "@types/bootstrap": "^5.1.6",
     "eslint": "^8.1.0",
@@ -23,5 +23,9 @@
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.4.1",
     "prettier-eslint": "^13.0.0"
+  },
+  "dependencies": {
+    "g": "^2.0.1",
+    "http-server": "^14.1.1"
   }
 }
