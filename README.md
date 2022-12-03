@@ -1,6 +1,6 @@
 # I Google Mo
 
-A PH localized fork of [Let me Google that for you (lmgtfy)](https://github.com/NatoBoram/lmgtfy) with inspiration from [GMG](https://github.com/gemji/googlemogago)
+A PH localized fork of [Let me Google that for you (lmgtfy)](https://github.com/NatoBoram/lmgtfy) with inspiration from [Let me google that](https://letmegooglethat.com/) and [GMG](https://github.com/gemji/googlemogago)
 
 [![Screenshot](images/screenshot.png)](https://igooglemo.com)
 
