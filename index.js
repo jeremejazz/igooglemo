@@ -18,7 +18,7 @@ let input;
 window.addEventListener("load", async () => {
   input = document.getElementById("input");
   input.value = "";
-
+  initButtons();
   makeQuote();
   setBrightness(JSON.parse(localStorage.getItem("dark") ?? "false"));
 
@@ -166,7 +166,7 @@ function setBrightness(dark) {
 }
 
 function makeQuote() {
-  var igmQuotes = [
+  const igmQuotes = [
     "Ako nalang mag Google para sayo.",
     "Hanap hanap din pag may time.",
     "Itanong mo kay Kuya Google.",
@@ -185,7 +185,15 @@ function makeQuote() {
     "Yung katanungan mo malamang may nagtanong na rin nyan dati.",
   ];
 
-  var quote = igmQuotes[Math.round(Math.random() * (igmQuotes.length - 1))];
+  const quote = igmQuotes[Math.round(Math.random() * (igmQuotes.length - 1))];
 
   document.getElementById("quote").innerText = quote;
+}
+
+function initButtons() {
+  const aboutBtn = document.getElementById("about");
+
+  aboutBtn.addEventListener("click", () => {
+    document.getElementById("aboutText").classList.remove("d-none");
+  });
 }
