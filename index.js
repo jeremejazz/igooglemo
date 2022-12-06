@@ -40,8 +40,8 @@ window.addEventListener("load", async () => {
   button.focus();
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  await setMessage("Ayan tapos", "mahirap ba?", "alert-success");
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await setMessage("Ayan", "Ang dali lang 'di ba?", "alert-success");
+  await new Promise((resolve) => setTimeout(resolve, 3100));
 
   window.location.href = `https://www.google.com/search?${
     query.lucky ? "btnI&" : ""
