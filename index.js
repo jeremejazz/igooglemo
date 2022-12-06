@@ -22,9 +22,6 @@ window.addEventListener("load", async () => {
   makeQuote();
   setBrightness(JSON.parse(localStorage.getItem("dark") ?? "false"));
 
-  if (query.name) {
-    document.getElementById("namedrop").innerText = ", " + query.name;
-  }
   if (!query.search) return;
 
   await setMessage("Step 1", "i-type ang iyong tanong");
