@@ -1,5 +1,5 @@
 "use strict";
-
+const SEARCH_URL = 'https://www.google.com/search';
 /** @type {{search: string; lucky?: boolean; name: string;}} */
 const query = window.location.search
   .substr(1)
@@ -43,7 +43,7 @@ window.addEventListener("load", async () => {
   await setMessage("Ayan", "Ang dali lang 'di ba?", "alert-success");
   await new Promise((resolve) => setTimeout(resolve, 3100));
 
-  window.location.href = `https://www.google.com/search?${
+  window.location.href = `${SEARCH_URL}?${
     query.lucky ? "btnI&" : ""
   }q=${query.search}`;
 });
@@ -189,8 +189,38 @@ function makeQuote() {
 
 function initButtons() {
   const aboutBtn = document.getElementById("about");
+  const searchBtn = document.getElementById("search");
+  const luckyBtn = document.getElementById('lucky');
+  const modal = new bootstrap.Modal(document.getElementById('modalLink'));
+  const searchform = document.getElementById('searchform');
 
   aboutBtn.addEventListener("click", () => {
     document.getElementById("aboutText").classList.remove("d-none");
   });
+
+  searchBtn.addEventListener("click", (e)=>{
+    
+    const searchText = encodeURIComponent(document.getElementById('input').value).replaceAll("%20", "+");
+
+    const txtLink = document.getElementById('txtLink');
+    txtLink.value = `${window.location.origin}${window.location.pathname}?search=${searchText}`;
+    modal.show();
+    
+  });
+
+  // TODO cleanup
+  luckyBtn.addEventListener("click", ()=>{
+    const searchText = encodeURIComponent(document.getElementById('input').value).replaceAll("%20", "+");
+
+    const txtLink = document.getElementById('txtLink');
+    txtLink.value = `${window.location.origin}${window.location.pathname}?search=${searchText}&lucky=true`;
+    modal.show();
+    
+  });
+
+  searchform.onsubmit = (e)=>{
+    e.preventDefault();
+
+    searchBtn.click();
+  };
 }
