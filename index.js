@@ -1,5 +1,6 @@
 "use strict";
 const SEARCH_URL = 'https://www.google.com/search';
+let modal;
 /** @type {{search: string; lucky?: boolean; name: string;}} */
 const query = window.location.search
   .substr(1)
@@ -187,11 +188,27 @@ function makeQuote() {
   document.getElementById("quote").innerText = quote;
 }
 
+function openModalLink(lucky=false){
+    const isValid = document.getElementById('searchform').reportValidity();
+
+    if(!isValid) return;
+    const searchText = encodeURIComponent(document.getElementById('input').value).replaceAll("%20", "+");
+
+    const txtLink = document.getElementById('txtLink');
+    txtLink.value = `${window.location.origin}${window.location.pathname}?search=${searchText}`;
+
+    if(lucky){
+      txtLink.value += '&lucky=true'
+    }
+    modal.show();
+
+}
+
 function initButtons() {
   const aboutBtn = document.getElementById("about");
   const searchBtn = document.getElementById("search");
   const luckyBtn = document.getElementById('lucky');
-  const modal = new bootstrap.Modal(document.getElementById('modalLink'));
+   modal = new bootstrap.Modal(document.getElementById('modalLink'));
   const searchform = document.getElementById('searchform');
 
   aboutBtn.addEventListener("click", () => {
@@ -200,22 +217,12 @@ function initButtons() {
 
   searchBtn.addEventListener("click", (e)=>{
     
-    const searchText = encodeURIComponent(document.getElementById('input').value).replaceAll("%20", "+");
-
-    const txtLink = document.getElementById('txtLink');
-    txtLink.value = `${window.location.origin}${window.location.pathname}?search=${searchText}`;
-    modal.show();
+    openModalLink();
     
   });
 
-  // TODO cleanup
   luckyBtn.addEventListener("click", ()=>{
-    const searchText = encodeURIComponent(document.getElementById('input').value).replaceAll("%20", "+");
-
-    const txtLink = document.getElementById('txtLink');
-    txtLink.value = `${window.location.origin}${window.location.pathname}?search=${searchText}&lucky=true`;
-    modal.show();
-    
+    openModalLink(true);
   });
 
   searchform.onsubmit = (e)=>{
