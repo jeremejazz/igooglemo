@@ -153,7 +153,7 @@
 
     <!-- Content -->
     <div class="container">
-      <form class="row g-3 text-center mt-5">
+      <form class="row g-3 text-center mt-5" id = 'searchform'>
         <!-- Google -->
         <label class="display-1 form-label fw-normal mb-0" for="input">
           <span class="text-dark">i-</span><span class="text-primary">G</span
@@ -187,7 +187,7 @@
 
         <!-- Actions -->
         <div>
-          <button class="btn btn-light" id="search" type="submit">
+          <button class="btn btn-light" id="search" type="button">
             Google Search
           </button>
           <button
@@ -195,7 +195,7 @@
             id="lucky"
             name="lucky"
             title="Open the first search result"
-            type="submit"
+            type="button"
             value="true"
           >
             I'm feeling lucky
@@ -236,5 +236,28 @@
       </font>
       <br />
     </footer>
+
+    <div class="modal fade" id="modalLink" tabindex="-1" aria-labelledby="modalLinkLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modalLinkLabel">Eto na...</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            I-copy mo nalang yung link para i-share
+            <div>
+              <input type="text" class="form-control" id="txtLink" readonly>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!-- TODO add preview -->
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
